@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Salamander_move : MonoBehaviour
+public class Salamandermove : MonoBehaviour
 {
     #region Health_vars
     [SerializeField]
@@ -16,6 +16,7 @@ public class Salamander_move : MonoBehaviour
     [Tooltip("Changes what the normal move speed is")]
     private float movespeed;
     private Rigidbody2D salRB;
+    private Transform pc;
     #endregion
 
     #region Attack_vars
@@ -34,6 +35,7 @@ public class Salamander_move : MonoBehaviour
     {
         curhealth = maxhealth;
         salRB = GetComponent<Rigidbody2D>();
+        pc = FindObjectOfType<PlayerController>().GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -44,12 +46,11 @@ public class Salamander_move : MonoBehaviour
     #endregion
 
     #region Movement_funcitons
-    // private void Move()
-    //{
-
-    //    Vector2 direction = new Vector2(x, y);
-    //    salRB.velocity = direction;
-    //}
+    private void Move()
+    {
+        Vector3 distance = pc.position - this.transform.position;
+        salRB.velocity = distance.normalized * movespeed;
+    }
     #endregion
 
     #region Health_functions
