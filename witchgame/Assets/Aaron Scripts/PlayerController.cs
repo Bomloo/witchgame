@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     // crouch only active behind cover, needs detection
     // player controller does the actual work
     // player movement triggers controller functions to move
-    private void Awake()
+    void Start()
     {
         
     }
