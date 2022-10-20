@@ -41,7 +41,11 @@ public class Salamandermove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
+        if((pc.position - this.transform.position).magnitude < 2)
+        {
+            Attack();
+        }
     }
     #endregion
 
@@ -61,6 +65,18 @@ public class Salamandermove : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    #endregion
+
+    #region Attack_functions
+    private void Attack()
+    {
+        // insert animation here
+        //point of contact
+        //transform.GetComponent<PlayerController>()
+        //finish animation
+
     }
 
     #endregion
