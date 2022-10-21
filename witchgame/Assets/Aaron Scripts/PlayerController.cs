@@ -20,14 +20,11 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void move(float move)
+    public void move(float x, float y)
     {
-        if (!crouch_state)
-        {
-            move_state = true;
-            Vector2 target_velocity = new Vector2(move, rb.velocity.y);
-            rb.velocity = target_velocity;
-        }
+        move_state = true;
+        Vector2 target_velocity = new Vector2(x, y);
+        rb.velocity = target_velocity;
     }
 
     public void attack()
@@ -37,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     public void crouch()
     {
-        crouch_state = true;
-
+        //crouch_state = state;
+        Debug.Log("crouching");
     }
 }
