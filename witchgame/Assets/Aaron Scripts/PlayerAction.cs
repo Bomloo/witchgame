@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerAction : MonoBehaviour
 {
     public PlayerController controller;
-
+    public BoxCollider2D bc;
 
     float horizontal_move = 0f;
     float vertical_move = 0f;
@@ -28,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
             coord = new Vector2(0, 0);
             controller.crouch();
         }
+
+        else if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            controller.attack();
+        }
+
         else
         {
             horizontal_move = Input.GetAxisRaw("Horizontal");
