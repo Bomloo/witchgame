@@ -23,6 +23,8 @@ public class PlayerAction : MonoBehaviour
     {
         //gets horizontal axis, at base, a = -1, d = 1, still = 0
 
+
+
         if (Input.GetKey(KeyCode.C))
         {
             coord = new Vector2(0, 0);

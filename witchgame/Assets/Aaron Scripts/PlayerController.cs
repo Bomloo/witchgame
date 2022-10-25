@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public bool move_state = false;
 
     public int health = 100;
+    public int range = 10;
 
     // key down on crouch, key up no crouch
     // crouch only active behind cover, needs detection
@@ -35,7 +36,16 @@ public class PlayerController : MonoBehaviour
 
     public void attack()
     {
-        Debug.Log("attacking");
+        RaycastHit2D hit = Physics2D.Raycast(origin.transform.position, origin.transform.up, range);
+        if (hit.collider == null)
+        {
+            Debug.Log("missed");
+        }
+        else
+        {
+            Debug.Log("attacking" + hit.transform.name);
+        }
+        
     }
 
     public void crouch()
