@@ -10,6 +10,9 @@ public class PlayerAction : MonoBehaviour
     float horizontal_move = 0f;
     float vertical_move = 0f;
     public float run_speed = 10f;
+    public float shoot_timer = 0f;
+    public float reload_timer = 0f;
+
     Vector2 coord;
     
     // Start is called before the first frame update
@@ -33,6 +36,7 @@ public class PlayerAction : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            StartCoroutine(countdown());
             controller.attack();
         }
 
@@ -50,5 +54,17 @@ public class PlayerAction : MonoBehaviour
     private void FixedUpdate()
     {
         controller.move(coord.x * run_speed, coord.y * run_speed);
+    }
+
+    private IEnumerator countdown()
+    {
+        float start = 0f;
+
+        while (start <= shoot_timer)
+        {
+            coord = new Vector2(0, 0);
+            start += Time.deltaTime;
+            yield return null;
+        }
     }
 }

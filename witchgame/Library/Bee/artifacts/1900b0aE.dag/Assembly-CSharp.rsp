@@ -338,6 +338,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Aaron Scripts/CameraFollow.cs"
+"Assets/Aaron Scripts/Origin.cs"
 "Assets/Aaron Scripts/PlayerAction.cs"
 "Assets/Aaron Scripts/PlayerController.cs"
 -langversion:8.0

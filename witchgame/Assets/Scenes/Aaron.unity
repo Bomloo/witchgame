@@ -415,7 +415,7 @@ Transform:
   m_LocalPosition: {x: 2.84, y: -1.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2071448346}
+  - {fileID: 1836082922}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -481,6 +481,7 @@ MonoBehaviour:
   controller: {fileID: 981599177}
   bc: {fileID: 981599174}
   run_speed: 10
+  timer: 0.5
 --- !u!114 &981599177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,11 +496,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 981599175}
   bc: {fileID: 981599174}
-  origin: {fileID: 2071448345}
+  shootpt: {fileID: 2071448345}
   crouch_state: 0
   move_state: 0
   health: 100
   range: 20
+--- !u!1 &1836082921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836082922}
+  - component: {fileID: 1836082923}
+  m_Layer: 0
+  m_Name: origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836082922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836082921}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2071448346}
+  m_Father: {fileID: 981599173}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836082923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836082921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70edd67a39cfacc4681907c728a1be3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
 --- !u!1 &2071448345
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,7 +557,7 @@ GameObject:
   - component: {fileID: 2071448346}
   - component: {fileID: 2071448347}
   m_Layer: 0
-  m_Name: origin
+  m_Name: shootpt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,7 +574,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 981599173}
+  m_Father: {fileID: 1836082922}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2071448347
@@ -572,7 +618,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.7432761, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
