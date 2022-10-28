@@ -340,7 +340,12 @@
 "Assets/Aaron Scripts/PlayerController.cs"
 "Assets/Aaron Scripts/PlayerMovement.cs"
 "Assets/K Scripts/Card.cs"
+"Assets/K Scripts/CardManager.cs"
+"Assets/K Scripts/ClubCard.cs"
+"Assets/K Scripts/DiamondCard.cs"
+"Assets/K Scripts/HeartCard.cs"
 "Assets/K Scripts/Salamandermove.cs"
+"Assets/K Scripts/SpadeCard.cs"
 -langversion:8.0
 
 /deterministic

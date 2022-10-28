@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card 
+public class Card : MonoBehaviour
 {
     #region Name_Vars
     public string suit;
     public int number;
+    public bool used;
     #endregion
 
     public bool isActive;
@@ -15,7 +16,7 @@ public class Card
     // Start is called before the first frame update
     void Start()
     {
-        
+        used = false;
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class Card
 
     #region Name_funcs
     //universal so we can set the suit and number and acess them later
-    void SetSuitandNumber(string s, int n)
+    public void SetSuitandNumber(string s, int n)
     {
         suit = s;
         number = n;
@@ -36,11 +37,11 @@ public class Card
 
     #region Card_Funcs
     //will be overided
-    void Active() { }
+    public virtual void Active(PlayerController play) { }
 
 
     //will be overided
-    void StartPassive() { }
+    public virtual void StartPassive(PlayerController play) { }
     #endregion
 
     void OnCollisionEnter2D(Collision2D col)
