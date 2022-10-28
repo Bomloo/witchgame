@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     //add shields max
     //heal hp
     //shield refresh
+
+
     //critrate
     //ammo
 
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
     public void attack()
     {
         RaycastHit2D hit = Physics2D.Raycast(shootpt.transform.position, shootpt.transform.up, range);
+        ammo--;
         if (hit.collider == null)
         {
             Debug.Log("missed");
@@ -82,5 +85,42 @@ public class PlayerController : MonoBehaviour
         {
             health -= dmg;
         }
+    }
+
+    public void add_health(int extra_health)
+    {
+        health += extra_health;
+        max_health += extra_health;
+    }
+
+    public void heal(int amount)
+    {
+        health += amount;
+        if (health > max_health)
+        {
+            health = max_health;
+        }
+    }
+
+    public void add_shields(int extra_shields)
+    {
+        shield += extra_shields;
+        max_shield += extra_shields;
+    }
+
+    public void refresh_shields()
+    {
+        shield = max_shield;
+    }
+
+    public void add_ammo(int extra_ammo)
+    {
+        ammo += extra_ammo;
+        max_ammo += extra_ammo;
+    }
+
+    public void reload()
+    {
+        ammo = max_ammo;
     }
 }

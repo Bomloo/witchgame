@@ -12,6 +12,7 @@ public class PlayerAction : MonoBehaviour
     public float run_speed = 10f;
     public float shoot_timer = 0f;
     public float reload_timer = 0f;
+    
 
     Vector2 coord;
     
@@ -26,7 +27,11 @@ public class PlayerAction : MonoBehaviour
     {
         //gets horizontal axis, at base, a = -1, d = 1, still = 0
 
-
+        if (controller.ammo == 0)
+        {
+            StartCoroutine(countdown(reload_timer));
+            controller.reload();
+        }
 
         if (Input.GetKey(KeyCode.C))
         {
@@ -34,9 +39,9 @@ public class PlayerAction : MonoBehaviour
             controller.crouch();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Mouse0))
+        else if (Input.GetKeyDown(KeyCode.Mouse0) && controller.ammo > 0)
         {
-            StartCoroutine(countdown());
+            StartCoroutine(freeze_countdown(shoot_timer));
             controller.attack();
         }
 
@@ -56,13 +61,24 @@ public class PlayerAction : MonoBehaviour
         controller.move(coord.x * run_speed, coord.y * run_speed);
     }
 
-    private IEnumerator countdown()
+    private IEnumerator freeze_countdown(float timer)
     {
         float start = 0f;
 
-        while (start <= shoot_timer)
+        while (start <= timer)
         {
             coord = new Vector2(0, 0);
+            start += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private IEnumerator countdown(float timer)
+    {
+        float start = 0f;
+
+        while (start <= timer)
+        {
             start += Time.deltaTime;
             yield return null;
         }
